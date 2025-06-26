@@ -3,6 +3,9 @@
 En este desafío validaremos nuestros conocimientos de diagramas de clases con clases, atributos, métodos y relaciones.
 
 ---
+![Diagrama de Clases](Diagrama.png)
+
+
 
 ## Descripción
 
