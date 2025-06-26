@@ -1,9 +1,7 @@
 from listado_respuestas import ListadoRespuestas
 
 class Usuario:
-    """
-    Representa a un usuario que puede contestar encuestas.
-    """
+    #Representa a un usuario que puede contestar encuestas.
     def __init__(self, correo: str, edad: int, region: int):
         self._correo = correo
         self._edad = edad
@@ -40,10 +38,7 @@ class Usuario:
         self._region = valor
 
     def contestar_encuesta(self, encuesta, respuestas):
-        """
-        Permite al usuario contestar una encuesta.
-        Crea un ListadoRespuestas y lo agrega a la encuesta.
-        """
+        #Permite al usuario contestar una encuesta. Crea un ListadoRespuestas y lo agrega a la encuesta.
         listado = ListadoRespuestas(self, respuestas)
         encuesta.agregar_listado_respuestas(listado)
         return listado

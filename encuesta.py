@@ -1,9 +1,7 @@
 from pregunta import Pregunta
 
 class Encuesta:
-    """
-    Representa una encuesta con un nombre, preguntas y respuestas de usuarios.
-    """
+    #Representa una encuesta con un nombre, preguntas y respuestas de usuarios.
     def __init__(self, nombre: str, preguntas: list ):
         self._nombre = nombre
         # Crea objetos Pregunta a partir de los datos recibidos
@@ -31,24 +29,18 @@ class Encuesta:
         return self._listados_respuestas
 
     def mostrar(self):
-        """
-        Devuelve un string con la información de la encuesta y sus preguntas.
-        """
+        #Devuelve un string con la información de la encuesta y sus preguntas.
         texto = f"Encuesta: {self._nombre}\n"
         for preg in self._preguntas:
             texto += preg.mostrar() + "\n"
         return texto
 
     def agregar_listado_respuestas(self, listado):
-        """
-        Agrega un listado de respuestas a la encuesta.
-        """
+        #Agrega un listado de respuestas a la encuesta.
         self._listados_respuestas.append(listado)
 
 class EncuestaLimitadaEdad(Encuesta):
-    """
-    Encuesta que solo acepta respuestas de usuarios dentro de un rango de edad.
-    """
+    #Encuesta que solo acepta respuestas de usuarios dentro de un rango de edad.
     def __init__(self, nombre, preguntas, edad_min=0, edad_max=120):
         super().__init__(nombre, preguntas)
         self._edad_min = edad_min
@@ -75,17 +67,13 @@ class EncuestaLimitadaEdad(Encuesta):
             self._edad_max = valor
 
     def agregar_listado_respuestas(self, listado):
-        """
-        Agrega el listado de respuestas solo si el usuario está dentro del rango de edad permitido.
-        """
+        #Agrega el listado de respuestas solo si el usuario está dentro del rango de edad permitido.
         usuario = listado.usuario
         if self._edad_min <= usuario.edad <= self._edad_max:
             self._listados_respuestas.append(listado)
 
 class EncuestaLimitadaRegion(Encuesta):
-    """
-    Encuesta que solo acepta respuestas de usuarios de ciertas regiones.
-    """
+    #Encuesta que solo acepta respuestas de usuarios de ciertas regiones.
     def __init__(self, nombre, preguntas, regiones=None):
         super().__init__(nombre, preguntas)
         self._regiones = regiones or []
@@ -101,9 +89,7 @@ class EncuestaLimitadaRegion(Encuesta):
             self._regiones = valor
 
     def agregar_listado_respuestas(self, listado):
-        """
-        Agrega el listado de respuestas solo si el usuario pertenece a una región permitida.
-        """
+        #Agrega el listado de respuestas solo si el usuario pertenece a una región permitida.
         usuario = listado.usuario
         if usuario.region in self._regiones:
             self._listados_respuestas.append(listado)

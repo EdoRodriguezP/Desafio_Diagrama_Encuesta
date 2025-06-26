@@ -1,7 +1,5 @@
 class ListadoRespuestas:
-    """
-    Almacena las respuestas de un usuario a una encuesta.
-    """
+    #Almacena las respuestas de un usuario a una encuesta.
     def __init__(self, usuario, respuestas: list):
         self._usuario = usuario
         self._respuestas = respuestas
